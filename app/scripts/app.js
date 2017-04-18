@@ -18,7 +18,7 @@
    
 
     angular
-        .module('timeApp', ['ui.router', 'firebase'])
+        .module('timeApp', ['ui.router', 'firebase','ngMaterial'])
         .config(config);
 })();
 

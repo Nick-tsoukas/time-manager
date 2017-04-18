@@ -4,13 +4,22 @@
     <meta charset="UTF-8">
     <title>Pomodoro Method</title>
     <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 </head>
 <body>
 
     <ui-view class="timeClock"></ui-view>
     
   
-   
+ <!-- Angular Material requires Angular.js Libraries -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>  
 <script src="/scripts/app.js"></script>
     <!-- Angular -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
@@ -35,5 +44,6 @@
 <script src="/scripts/controllers/clockCtrl.js"></script>
     <script src="scripts/filters/timecode.js"></script>
     <script src="scripts/constants.js"></script>
+    
 </body>
 </html>
