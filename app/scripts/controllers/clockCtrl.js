@@ -1,8 +1,9 @@
 (function() {
-     function ClockCtrl($scope,$interval,$filter,WORK_TIME,BREAK_TIME) {
+     function ClockCtrl($scope,$interval,$filter,WORK_TIME,BREAK_TIME,LONG_BREAK) {
          
          var vm = this;
          var countDown;
+         vm.completedWorkSessions = 0;
          vm.onBreak = false;
          vm.timerRunning = false;
          vm.workButton = "Start";
@@ -10,20 +11,24 @@
          vm.totalTime = WORK_TIME;
          
          vm.stopTimer = function() {
-              vm.resetTimer();
               vm.timerRunning = false;
               $interval.cancel(countDown);
+              vm.resetTimer();
               
          };
          
          vm.resetTimer = function(){
-             if(vm.timerRunning && !vm.onBreak){
-                 vm.totalTime = WORK_TIME;
-                 vm.workButton = "Start";
-             } else if (vm.timerRunning && vm.onBreak){
-                 vm.breakButton = "Start Break";
+             if(vm.onBreak && vm.completedWorkSessions !== 4){
                  vm.totalTime = BREAK_TIME;
+                 vm.breakButton = "Start Break";              
+             } else if(vm.onBreak && vm.completedWorkSessions === 4){
+                 vm.totalTime = LONG_BREAK;
+                 vm.completedWorkSessions =0;
              }
+             else if (!vm.onBreak){
+                 vm.workButton = "Start";
+                 vm.totalTime = WORK_TIME;
+            }
          };
          
          vm.startTimer = function(){
@@ -39,17 +44,15 @@
                     vm.breakButton = 'Reset Break';
                 }
                 if(vm.totalTime === 0 && !vm.onBreak){
-                vm.stopTimer();
-                vm.timerRunning = false;
+                vm.completedWorkSessions++;
                 vm.onBreak = true;
-                vm.totalTime = BREAK_TIME;
+                vm.stopTimer();
             }
                 else if(vm.totalTime === 0 && vm.onBreak){
-                    vm.stopTimer();
-                    vm.timerRunning = false;
                     vm.onBreak = false;
-                    vm.totalTime = WORK_TIME;
+                    vm.stopTimer();
                 }
+                
             },1000);
             
          };
