@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html ng-app="timeApp">
+<html ng-app="timeApp" >
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Bloc Base Project</title>
+    <title>Pomodoro Method</title>
     <link rel="stylesheet" href="/styles/main.css">
 </head>
 <body>
-    <div class="timeClock">
-         <ui-view></ui-view>
-    </div>
+
+    <ui-view class="timeClock"></ui-view>
+    
+  
+   
 <script src="/scripts/app.js"></script>
     <!-- Angular -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
@@ -30,5 +32,8 @@
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
 <script src="scripts/app.js"></script>
+<script src="/scripts/controllers/clockCtrl.js"></script>
+    <script src="scripts/filters/timecode.js"></script>
+    <script src="scripts/constants.js"></script>
 </body>
 </html>

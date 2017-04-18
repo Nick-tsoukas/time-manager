@@ -14,9 +14,12 @@
         });
        
     }
-
+     
+   
 
     angular
         .module('timeApp', ['ui.router', 'firebase'])
         .config(config);
 })();
+
+

@@ -1,2 +1,6 @@
-<div>Time App
+<div ng-controller="ClockCtrl as clock">
+    <h1> {{clock.totalTime |  timecode}}</h1>
+    <h2>{{clock.name}}</h2>
+    <button ng-hide="clock.onBreak === true" ng-click="clock.startTimer()">{{clock.workButton}}</button>
+    <button ng-show="clock.onBreak === true" ng-click="clock.startTimer()">{{clock.breakButton}}</button>
 </div>
