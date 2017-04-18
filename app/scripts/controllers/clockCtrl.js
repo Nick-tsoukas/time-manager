@@ -10,6 +10,10 @@
          vm.breakButton = "Start Break";
          vm.totalTime = WORK_TIME;
          
+         var mySound = new buzz.sound("/assets/sounds/Metroid.mp3", {
+             preload: true
+         });
+         
          vm.stopTimer = function() {
               vm.timerRunning = false;
               $interval.cancel(countDown);
@@ -45,12 +49,15 @@
                 }
                 if(vm.totalTime === 0 && !vm.onBreak){
                 vm.completedWorkSessions++;
+                
                 vm.onBreak = true;
                 vm.stopTimer();
+                mySound.play();
             }
                 else if(vm.totalTime === 0 && vm.onBreak){
                     vm.onBreak = false;
                     vm.stopTimer();
+                    mySound.play();
                 }
                 
             },1000);
