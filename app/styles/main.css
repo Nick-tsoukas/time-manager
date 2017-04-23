@@ -1,17 +1,47 @@
-.timeClock {
-    position:absolute;
-    top:50vh;
-    text-align:center;
-    width:100%;
+.timer {
+    text-align: center;
+    position: relative;
+    top: 50vh;
+    width: 100%;
+}
+
+h1.taskHeader {
+    font-size: 1rem;
+}
+
+.column.tasks {
+    height: 100vh;
+    background: black;
+    color: white;
+    padding-top: 3rem;
+    padding-left: 2rem;
+}
+
+.columns {
+    display: flex;
+}
+
+.column {
+    flex: 1;
+}
+
+.main-column {
+    flex: 3;
 }
 
 .md-raised {
-    background:black !important;
-    color:white !important;
-   
+    background: black !important;
+    color: white !important;
 }
 
 * {
     font-family: 'Orbitron', sans-serif;
 }
 
+ul {
+    list-style-type: none;
+}
+
+.fa-times {
+    color: red;
+}

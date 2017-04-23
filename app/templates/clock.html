@@ -1,6 +1,29 @@
-<div ng-controller="ClockCtrl as clock">
-    <h1> {{clock.totalTime |  timecode}}</h1>
-    <h2>{{clock.name}}</h2>
-    <md-button class="md-raised"  ng-hide="clock.onBreak === true" ng-click="clock.startTimer()">{{clock.workButton}}</md-button>
-    <md-button class="md-raised" ng-show="clock.onBreak === true" ng-click="clock.startTimer()">{{clock.breakButton}}</md-button>
+<div class="columns">
+    <div ng-controller="ClockCtrl as clock" class="column tasks">
+        <h1 class="taskHeader">Task List{{ }}</h1>
+        <form ng-submit="addMessage()">
+
+            <input ng-model="newMessageText" />
+            <md-button type="submit">Add Task</md-button>
+
+        </form>
+
+        <ul>
+            <li ng-repeat="message in messages | orderBy:'timestamp':'reverse' " ng-model="message.text">
+                {{message.text}}
+                <i class="fa fa-times" aria-hidden="true" ng-click="messages.$remove(message)"></i>
+            </li>
+        </ul>
+
+
+    </div>
+    <div class=" column main-column">
+        <div class="timer">
+
+            <h1> {{clock.totalTime | timecode}}</h1>
+            <h2>{{clock.name}}</h2>
+            <md-button class="md-raised" ng-hide="clock.onBreak === true" ng-click="clock.startTimer()">{{clock.workButton}}</md-button>
+            <md-button class="md-raised" ng-show="clock.onBreak === true" ng-click="clock.startTimer()">{{clock.breakButton}}</md-button>
+        </div>
+    </div>
 </div>

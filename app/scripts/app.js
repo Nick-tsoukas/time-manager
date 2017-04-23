@@ -12,6 +12,7 @@
             templateUrl: '/templates/clock.html',
             controller: 'ClockCtrl as clock'
         });
+        
        
     }
     
