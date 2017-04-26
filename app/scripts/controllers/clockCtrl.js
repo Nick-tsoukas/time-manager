@@ -23,6 +23,11 @@
             $scope.newMessageText = "";
 
         };
+        
+        $scope.isActive = function (viewLocation) {
+     var active = (viewLocation === $location.url());
+     return active;
+};
 
 
 
@@ -50,13 +55,18 @@
             }
         };
 
+        
+        
+        
         vm.startTimer = function () {
 
             if (vm.timerRunning === true) {
                 return vm.stopTimer();
             }
             countDown = $interval(function () {
+                
                 vm.totalTime--;
+                
                 vm.timerRunning = true;
                 if (vm.timerRunning && !vm.onBreak) {
                     vm.workButton = "Reset";

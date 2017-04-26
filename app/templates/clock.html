@@ -1,29 +1,35 @@
-<div class="columns">
-    <div ng-controller="ClockCtrl as clock" class="column tasks">
-        <h1 class="taskHeader">Task List{{ }}</h1>
-        <form ng-submit="addMessage()">
-
-            <input ng-model="newMessageText" />
-            <md-button type="submit">Add Task</md-button>
-
-        </form>
-
-        <ul>
-            <li ng-repeat="message in messages | orderBy:'timestamp':'reverse' " ng-model="message.text">
-                {{message.text}}
-                <i class="fa fa-times" aria-hidden="true" ng-click="messages.$remove(message)"></i>
-            </li>
-        </ul>
+<div class="columns" ng-controller="ClockCtrl as clock">
+    <div class="column tasks">
+        <md-toolbar class="md-hue-2">
+            <div class="md-toolbar-tools">
+                <h2 class="taskHeader" flex md-truncate> Timer</h2>
+            </div>
+        </md-toolbar>
 
 
+        <h1 class="clock"> {{clock.totalTime | timecode}}</h1>
+        <h2>{{clock.name}}</h2>
+        <md-button class="md-raised" ng-hide="clock.onBreak === true" ng-click="clock.startTimer()">{{clock.workButton}}</md-button>
+        <md-button class="md-raised" ng-show="clock.onBreak === true" ng-click="clock.startTimer()">{{clock.breakButton}}</md-button>
     </div>
     <div class=" column main-column">
-        <div class="timer">
+        <md-toolbar class="md-hue-2 hidden">
+            <div class="md-toolbar-tools">
+                <h2 class="taskHeader" flex md-truncate>Task List</h2>
+            </div>
+        </md-toolbar>
+        <form ng-submit="addMessage()">
+            <md-input-container class="inputBox">
+                <label>Add a task...</label>
+                <input ng-model="newMessageText" type="text">
+            </md-input-container>
+        </form>
 
-            <h1> {{clock.totalTime | timecode}}</h1>
-            <h2>{{clock.name}}</h2>
-            <md-button class="md-raised" ng-hide="clock.onBreak === true" ng-click="clock.startTimer()">{{clock.workButton}}</md-button>
-            <md-button class="md-raised" ng-show="clock.onBreak === true" ng-click="clock.startTimer()">{{clock.breakButton}}</md-button>
-        </div>
+        <md-list-item ng-repeat="message in messages | orderBy:'timestamp':'reverse' " ng-model="message.text">
+            <md-checkbox ng-model="message.selected"></md-checkbox>
+            <div>{{message.text}}</div>
+            <md-icon class="md-secondary" ng-click="messages.$remove(message)" ng-model="message.text" md-font-library="material-icons">delete</md-icon>
+
+        </md-list-item>
     </div>
 </div>
