@@ -1,10 +1,20 @@
 * {
     font-family: 'Questrial', sans-serif;
 }
+.md-button.md-default-theme.md-raised, .md-button.md-raised {
+    /* color: rgb(33,33,33); */
+    color: black;
+  }
 
+.homeTitle {
+   text-transform:uppercase;
+   font-size:5.5rem;
+   margin-top:0px;
+   margin-bottom:0px
+}
 .timer {
      padding: 2rem;
-    
+
 }
 
 .clock {
@@ -28,21 +38,21 @@ ul {
 }
     .column {
    flex: .8;
-    
+
 }
     .main-column {
    flex: 3;
-    
+
 }
-    
+
 }
 
 @media (max-width: 600px) {
   .hidden {
    display: none;
 }
-   
-    
+
+
 }
 
 .hiddenPhone {
@@ -55,11 +65,10 @@ ul {
 
 
 .md-button.addTask {
-     background-image: linear-gradient(-45deg, #FF7C94 0%, #FF7C7A 100%);
-}
-.md-raised {
-    background: black !important;
-    color: white !important;
+    background: #F00000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #DC281E, #F00000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #DC281E, #F00000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 
@@ -74,7 +83,10 @@ li.loginNav {
 
 .heroLanding {
     min-height: 500px;
-    background-image: linear-gradient(-45deg, #FF7C94 0%, #FF7C7A 100%);
+    background: #F00000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #DC281E, #F00000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #DC281E, #F00000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
     padding-top: 86px;
     color: white;
 }
@@ -87,32 +99,12 @@ li.loginNav {
     max-height: 150px;
 }
 
-.one {
-    color: red;
-}
-
-.two {
-    color: #65c3ad;
-}
-
-.three {
-    color: red;
-}
-
-.four {
-    color: white;
-}
-
-.last {
-    color: #65c3ad;
-}
-
 div.getStarted::after {
    content: "Get Started";
     font-size: 3rem;
     position: relative;
     bottom: .7rem;
-    
+
 }
 form {
     margin-right:4rem;
@@ -126,14 +118,14 @@ md-input-container:not(.md-input-invalid).md-input-focused label {
     color: #65C3AD
 }
 md-checkbox.md-default-theme.md-checked .md-icon, md-checkbox.md-checked .md-icon {
-    background-color: #FF7C81;
+    background-color: #F00000;
 }
 .md-button.md-default-theme.md-raised, .md-button.md-raised {
-  
-    background-color: #FF7C81 !important;
+
+    background-color: #F00000 ;
 }
 md-toolbar.md-hue-2:not(.md-menu-toolbar) {
-    background-color: #FF7C81;
+    background-color: #F00000;
 }
 .inputBox {
     width:100%;
@@ -146,16 +138,10 @@ md-list-item, md-list-item .md-list-item-inner {
 
 
 .fa-play-circle {
-    color: #ff7c8c;
+    color: #F00000
+
 }
 
-svg {
-    display: block;
-    position: absolute;
-    top: 59%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
 
 .getStarted {
     text-align: center;
@@ -195,9 +181,10 @@ footer {
 footer .fa {
     padding: 0px 1rem .5rem 1rem;
     font-size: 2rem;
+    color:#F00000
 }
 a {
-    color:black;
+    color:#F00000;
 }
 
 i { cursor: pointer; cursor: hand; }

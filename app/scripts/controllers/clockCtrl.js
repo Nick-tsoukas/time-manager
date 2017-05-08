@@ -25,9 +25,9 @@
         };
         
         $scope.isActive = function (viewLocation) {
-     var active = (viewLocation === $location.url());
-     return active;
-};
+            var active = (viewLocation === $location.url());
+            return active;
+        };
 
 
 
